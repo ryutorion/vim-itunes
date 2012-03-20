@@ -1,0 +1,45 @@
+﻿*vim-itunes.txt*                                   Control the iTunes from Vim
+
+Version : 0.1
+Author  : Masahiro Kimoto <masahiro.kimoto@gmail.com>
+
+CONTENTS                                                 *vim-itunes-contents*
+
+Introduction    |vim-itunes-introduction|
+Interface       |vim-itunes-interface|
+    Functions   |vim-itunes-functions|
+
+==============================================================================
+INTRODUCTION                                         *vim-itunes-introduction*
+
+'vim-itunes' is a vim plugin to control the iTunes from Vim.
+
+==============================================================================
+INTERfACE                                               *vim-itunes-interface*
+
+------------------------------------------------------------------------------
+FUNCTIONS                                               *vim-itunes-functions*
+
+itunes#play()                                                  *itunes#play()*
+    Play the current track.
+
+itunes#pause()                                                *itunes#pause()*
+    Toggle between pausing and playing.
+
+itunes#next()                                                  *itunes#next()*
+    Advanced to the next track in the current playlist.
+
+itunes#prev()                                                  *itunes#prev()*
+    Return to the previous track in the current playlist.
+
+itunes#repeat()                                              *itunes#repeat()*
+    Set the iTunes to repeat only current track.
+
+itunes#looop()                                                 *itunes#loop()*
+    Set the iTunes to repeat all track in the current playlist.
+
+itunes#stop()                                                  *itunes#stop()*
+    Stop to playing the current track.
+
+==============================================================================
+vim:tw=78:ft=help

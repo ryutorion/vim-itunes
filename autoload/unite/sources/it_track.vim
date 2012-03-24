@@ -21,7 +21,16 @@ if has('mac')
   let s:command = 'osascript ' . expand('<sfile>:p:h') . "/it_track.scpt"
   function! s:source_it_track.gather_candidates(args, context) "{{{
     let tracks = split(system(s:command), "\n")
-    return map(tracks, "{'word':v:val, 'kind':'it_track'}")
+    let result = []
+    for track in tracks
+      let t = split(track, "\t")
+      let result += [{
+            \ 'word' : t[0],
+            \ 'kind' : 'it_track',
+            \ 'action__id' : t[1]
+            \}]
+    endfor
+    return result
   endfunction "}}}
 elseif has('win32') || has('win64')
   let s:command = 'cscript /Nologo ' . substitute(expand('<sfile>:p:h') . "/it_track.js", "/", "\\", "g")

@@ -24,6 +24,7 @@ let s:kind.action_table.play = {
 
 if has('mac')
   function! s:kind.action_table.play.func(candidate) "{{{
+    call system("osascript -e 'tell Application \"iTunes\" to play file track id " . a:candidate.action__id ." of user playlist 1'")
   endfunction "}}}
 elseif has('win32') || has('win64')
   function! s:kind.action_table.play.func(candidate) "{{{

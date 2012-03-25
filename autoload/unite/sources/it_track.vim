@@ -20,7 +20,7 @@ let s:source_it_track = {
 if has('mac')
   let s:command = 'osascript ' . expand('<sfile>:p:h') . "/it_track.scpt"
 elseif has('win32') || has('win64')
-  let s:command = 'cscript /Nologo ' . substitute(expand('<sfile>:p:h') . "/it_track.js", "/", "\\", "g")
+  let s:command = 'cscript /Nologo ' . expand('<sfile>:p:h') . "/it_track.js"
 endif
 
 function! s:source_it_track.gather_candidates(args, context) "{{{
@@ -29,7 +29,7 @@ function! s:source_it_track.gather_candidates(args, context) "{{{
   else
     let tracks = split(system(s:command), "\n")
   endif
-
+  
   let result = []
   for track in tracks
     let t = split(track, "\t")

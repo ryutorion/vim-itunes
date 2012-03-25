@@ -24,7 +24,12 @@ elseif has('win32') || has('win64')
 endif
 
 function! s:source_it_track.gather_candidates(args, context) "{{{
-  let tracks = split(system(s:command), "\n")
+  if unite#util#has_vimproc()
+    let tracks = split(vimproc#system(s:command), "\n")
+  else
+    let tracks = split(system(s:command), "\n")
+  endif
+
   let result = []
   for track in tracks
     let t = split(track, "\t")

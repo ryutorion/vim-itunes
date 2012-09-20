@@ -10,7 +10,11 @@ set cpo&vim
 
 if has('mac') "{{{
   function! s:request_to_itunes(request)
-    call system("osascript -e 'tell application \"iTunes\" to " . a:request . "'")
+    if unite#util#has_vimproc()
+      call vimproc#system_bg("osascript -e 'tell application \"iTunes\" to " . a:request . "'")
+    else
+      call system("osascript -e 'tell application \"iTunes\" to " . a:request . "'")
+    endif
   endfunction
 
   function! itunes#play() "{{{
@@ -43,7 +47,12 @@ if has('mac') "{{{
 elseif has('win32') || has('win64')
   let s:path = expand('<sfile>:p:h') . '/itunes.js'
   function! s:request_to_itunes(request)
-    call system("cscript " . substitute(s:path, '/', '\\', 'g') . ' ' . a:request)
+    if unite#util#has_vimproc()
+      call vimproc#system_bg("cscript.exe " . substitute(s:path, '\\', '/', 'g') . ' ' . a:request)
+    else
+      call system("cscript " . substitute(s:path, '/', '\\', 'g') . ' ' . a:request)
+    endif
+
   endfunction
 
   function! itunes#play() "{{{

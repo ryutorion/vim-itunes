@@ -41,5 +41,11 @@ itunes#looop()                                                 *itunes#loop()*
 itunes#stop()                                                  *itunes#stop()*
     Stop to playing the current track.
 
+itunes#volume_up({value})                                      *itunes#volume_up()*
+    Volume up {value}.
+
+itunes#volume_down({value})                                    *itunes#volume_down()*
+    Volume down {value}.
+
 ==============================================================================
 vim:tw=78:ft=help

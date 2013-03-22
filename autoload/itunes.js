@@ -1,7 +1,7 @@
 /*
  * FILE: itunes.js
  * AUTHOR: Masahiro Kimoto <masahiro.kimoto@gmail.com>
- * Last Modified: 2012 Mar 20
+ * Last Modified: 2013 Mar 22
  * Version: 0.1
  */
 
@@ -31,9 +31,19 @@ var commands = {
             },
   'loop' :  function(){
               itunes.currentPlaylist.songRepeat = ITPlaylistRepeatModeAll;
+            },
+  'volume_up'  : function(value){
+              itunes.SoundVolume += value;
+            },
+  'volume_down': function(value){
+              itunes.SoundVolume -= value;
             }
 };
 var args = WScript.Arguments;
 if(args.length == 1 && commands[args(0)]){
   commands[args(0)]();
 }
+if(args.length == 2 && commands[args(0)]){
+  commands[args(0)](Number(args(1)));
+}
+

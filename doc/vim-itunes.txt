@@ -1,6 +1,6 @@
 ﻿*vim-itunes.txt*                                   Control the iTunes from Vim
 
-Version : 0.1
+Version : 0.2
 Author  : Masahiro Kimoto <masahiro.kimoto@gmail.com>
 
 CONTENTS                                                 *vim-itunes-contents*

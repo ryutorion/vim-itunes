@@ -44,6 +44,14 @@ if has('mac') "{{{
   function! itunes#loop() "{{{
     call s:request_to_itunes('set song repeat of current playlist to all')
   endfunction "}}}
+
+  function! itunes#volume_up(value) "{{{
+    call s:request_to_itunes('set sound volume to sound volume + ' . a:value)
+  endfunction "}}}
+  function! itunes#volume_down(value) "{{{
+    call s:request_to_itunes('set sound volume to sound volume - ' . a:value)
+  endfunction "}}}
+
 elseif has('win32') || has('win64')
   let s:path = expand('<sfile>:p:h') . '/itunes.js'
   function! s:request_to_itunes(request)

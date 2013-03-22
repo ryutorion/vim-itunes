@@ -1,7 +1,7 @@
 "=============================================================================
 " FILE: itunes.vim
 " AUTHOR: Masahiro Kimoto <masahiro.kimoto@gmail.com>
-" Last Modified: 2012 Mar 20
+" Last Modified: 2013 Mar 22
 " Version: 0.1
 "=============================================================================
 
@@ -81,6 +81,14 @@ elseif has('win32') || has('win64')
 
   function! itunes#loop() "{{{
     call s:request_to_itunes('loop')
+  endfunction "}}}
+
+  function! itunes#volume_up(value) "{{{
+    call s:request_to_itunes('volume_up '. a:value)
+  endfunction "}}}
+
+  function! itunes#volume_down(value) "{{{
+    call s:request_to_itunes('volume_down '. a:value)
   endfunction "}}}
 endif "}}}
 
